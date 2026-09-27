@@ -15,5 +15,8 @@
     background: g.$background;
     color: g.$primary;
     padding: 0.5em 1em;
+    @include g.query-down(21.875rem) {
+      font-size: 0.7em;
+    }
   }
 }
