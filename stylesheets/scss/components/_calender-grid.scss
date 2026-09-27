@@ -1,0 +1,84 @@
+@use "../globals/" as g;
+.calender-grid {
+  background: g.$background;
+  color: g.$surface;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0.1em;
+  gap: 0.1em;
+  .weekdays-name,
+  .calender-date {
+    @include g.flex(column, center, center);
+    background: g.$primary;
+    aspect-ratio: 2/1.5;
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+    @include g.query-down(31.25rem) {
+      aspect-ratio: 1;
+    }
+    @include g.hover-active {
+      &:not(.muted-date):hover {
+        background: g.$secondary;
+      }
+    }
+  }
+  .weekdays-name {
+    @include g.query-down(40.9375rem) {
+      font-size: 1em;
+    }
+    @include g.query-down(25rem) {
+      font-size: 0.9em;
+    }
+  }
+  .calender-date {
+    font-size: 1.8em;
+    position: relative;
+    @include g.query-down(40.9375rem) {
+      font-size: 1.5em;
+    }
+    @include g.query-down(28.75rem) {
+      font-size: 1em;
+    }
+    .date-en {
+      font-size: 0.5em;
+      position: absolute;
+      top: 0.3em;
+      right: 0.6em;
+      @include g.query-down(28.75rem) {
+        font-size: 0.7em;
+      }
+      @include g.query-down(25rem) {
+        font-size: 0.6em;
+      }
+    }
+    .tithi-name {
+      font-size: 0.4em;
+      position: absolute;
+      bottom: 0.5em;
+      @include g.query-down(40.9375rem) {
+        bottom: 0.2em;
+      }
+      @include g.query-down(28.75rem) {
+        font-size: 0.7em;
+      }
+      @include g.query-down(25rem) {
+        font-size: 0.6em;
+      }
+    }
+  }
+}
+
+.muted-date {
+  background: g.$muted !important;
+}
+.holiday {
+  background-color: g.$background !important;
+  color: g.$primary;
+  border: 2px solid g.$primary;
+}
+
+.today {
+  background-color: g.$today !important;
+  color: g.$surface;
+}

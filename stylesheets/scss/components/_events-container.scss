@@ -1,0 +1,19 @@
+@use "../globals/" as g;
+.events-container {
+  padding: 1em;
+  @include g.flex($direction: column);
+  gap: 0.1em;
+  @include g.query-down(40.9375rem) {
+    font-size: 1em;
+  }
+  @include g.query-down(21.875rem) {
+    font-size: 0.9em;
+  }
+  li {
+    list-style: none;
+    @include g.flex($justify: space-between);
+    background: g.$background;
+    color: g.$primary;
+    padding: 0.5em 1em;
+  }
+}

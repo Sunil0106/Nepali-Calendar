@@ -1,0 +1,28 @@
+@use "../globals/" as g;
+.calender-header {
+  margin: 2em 0;
+  @include g.flex($justify: center, $align: center);
+  @include g.query-down(40.9375rem) {
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+
+  gap: 4rem;
+  button {
+    @include g.buttons;
+    font-size: 1.1em;
+    font-weight: 900;
+    @include g.query-down(40.9375rem) {
+      font-size: 1em;
+    }
+
+    @include g.query-down(25rem) {
+      font-size: 0.9em;
+    }
+  }
+  .previous-month,
+  .next-month {
+    border-radius: 50%;
+    aspect-ratio: 1;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../globals/variables" as var;
+main {
+  background: var.$primary;
+  padding: 1rem 0.2em;
+  width: min(100%, 56.25rem);
+  margin-inline: auto;
+  min-height: 100vh;
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}

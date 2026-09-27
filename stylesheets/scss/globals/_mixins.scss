@@ -1,0 +1,47 @@
+@use "./variables" as var;
+@mixin buttons {
+  border: 1px solid var.$border;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  color: inherit;
+  background: none;
+  transition: all 0.15s ease-in;
+  border-radius: 0.2em;
+  @include hover-active() {
+    &:hover {
+      background: var.$surface;
+      color: var.$primary;
+      border-color: var.$secondary;
+    }
+    &:active {
+      background: var.$primary;
+      color: var.$surface;
+      border-color: var.$secondary;
+    }
+  }
+}
+
+@mixin hover-active {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin flex($direction: "row", $align: "flex-start", $justify: "flex-start") {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin query-down($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin query-up($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
